@@ -1,0 +1,12 @@
+
+*/build/
+*/dist/
+*/nbproject/private/
+*/nbproject/Package-*.bash
+*/nbproject/Makefile-default.mk
+*/nbproject/Makefile-genesis.properties
+*/nbproject/Makefile-impl.mk
+*/nbproject/Makefile-local-default.mk
+*/nbproject/Makefile-variables.mk
+
+*.d
