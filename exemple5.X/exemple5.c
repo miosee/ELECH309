@@ -7,6 +7,7 @@
 
 
 #include <xc.h>
+#include <math.h>
 #include "init.h"
 #include "../libs/dac.h"
 #include "../libs/morse.h"
@@ -24,13 +25,7 @@ int main(void) {
     
     // Initialise the main oscillator to run at Fosc=80MHz => Fcy=40MHz
     oscillatorInit();
-    
-    // SYNTHETISER INITIALISATIONS
-    //////////////////////////////
-    // Create the sample vector to feed the DAC with a saw-tooth wave
-    for (i=0; i<LENGTH; i++) {
-        data[i] = 800*i;
-    }
+
     // Set the DAC sampling frequency to 80MHz/256/8 = 39.06kHz
     DAC_init(8);
 
@@ -40,6 +35,13 @@ int main(void) {
     TRISBbits.TRISB5 = 1;
     // Initialise the Morse LED pin as an output
     morseInit();
+    
+    // SYNTHETISER INITIALISATIONS
+    //////////////////////////////
+    // Create the sample vector to feed the DAC with a saw-tooth wave
+    for (i=0; i<LENGTH; i++) {
+        data[i] = 100*( 1 + sin( (6.28*i)/LENGTH ) );
+    }
 
     i = 0;
     while(1) {
