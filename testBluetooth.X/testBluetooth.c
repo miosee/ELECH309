@@ -3,7 +3,7 @@
  * Demo of the AMB2300 library, created the 02/04/2020
  * 
  * The AMB2300 is the bluetooth-serial interface on the main board of the
- * ELECH309 robot.µ
+ * ELECH309 robot.
  * This demo was written for this board. It sends a sine wave period through
  * the bluetooth connexion to the host (i.e. a PC).
  * 

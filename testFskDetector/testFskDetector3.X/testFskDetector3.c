@@ -35,7 +35,7 @@ int main(void) {
     oscillatorInit();
     RPOR3bits.RP7R = 3;     // connecte U1TX à RP5
     RPINR18bits.U1RXR = 6;  // connecte U1RX à RP4
-    uart1Init(115200, 40000000);
+    uart1Init(9600, 40000000);
     
     // on attend de recevoir un caractère pour démarrer
     uart1GetChar();

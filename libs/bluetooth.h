@@ -1,10 +1,10 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 //																						//
-//	bluetooth.h, créé le 13/01/2013 par M. Osée												//
+//	bluetooth.h, créé le 13/01/2013 par M. Osée											//
 //																						//
 //	Cette librairie de fonction interace le dsPIC avec le module Bluetooth AMB2300		//
 //	Elle est écrite pour la famille dsPIC33FJxxMCx02/04									//
-//	Elle utilise le module UART2														//
+//	Elle utilise le module UART1 et le TIMER3											//
 //																						//
 //	V1.0 : création																		//
 //																						//
@@ -26,7 +26,7 @@
 	#define TRIS_AMB2300_RESET		_TRISB2
 
 
-	// Configure l'UART2 et le PPS pour pouvoir communiquer avec le module AMB2300
+	// Configure l'UART et le PPS pour pouvoir communiquer avec le module AMB2300
 	int16_t btInit(void);
 
 	// Donne la place encore disponible dans le buffer d'émission, en octets
