@@ -19,7 +19,7 @@
 #include "libpic30.h"   // Contains __delay_ms definition
 #include "xc.h"         // Contains register variable definitions
 
-#define ON_TIME 5000    // LEd on-state duration, in ms
+#define ON_TIME 5000    // LED on-state duration, in ms
 
 
 int main(void) {
