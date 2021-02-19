@@ -199,6 +199,7 @@
         <property key="ADC 1" value="true"/>
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="CRC" value="true"/>
+        <property key="DAC 1" value="true"/>
         <property key="DUAL COMPARATOR" value="true"/>
         <property key="ECAN" value="true"/>
         <property key="Freeze All Other Peripherals" value="true"/>
@@ -212,8 +213,6 @@
         <property key="OUTPUT COMPARE 3" value="true"/>
         <property key="OUTPUT COMPARE 8" value="true"/>
         <property key="PARALLEL MASTER/SLAVE PORT" value="true"/>
-        <property key="PWM 1" value="true"/>
-        <property key="PWM 2" value="true"/>
         <property key="REAL TIME CLOCK AND CALENDAR" value="true"/>
         <property key="SPI 1" value="true"/>
         <property key="SPI 2" value="true"/>
@@ -253,6 +252,8 @@
         <property key="memories.programmemory.ranges" value="0-157ff"/>
         <property key="memories.rww" value="true"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/mosee/Documents/Cours/ELECH309/MPLABX/gpio1.X/debug/default/gpio1_ptg"/>
         <property key="programmerToGoImageName" value="gpio1_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
