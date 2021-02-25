@@ -41,15 +41,16 @@ int main(void) {
 
 	while(1) {
         if (U1STAbits.URXDA) {      // si UART1 a reçu un octet
-            sample = U1RXREG;
-            if (sample == 's') {
-            	T3CONbits.TON = 1;
-                for (i=0; i<1000; i++) {
-                    while (adcConversionDone()) {}
-                    sample = adcRead()/4;
-                    while (U1STAbits.UTXBF) {}
-                    U1TXREG = sample;
+            sample = U1RXREG;           // On le lit
+            if (sample == 's') {        // on vérifie si c'est celui qu'on attendait
+            	T3CONbits.TON = 1;      // on démarre le timer3
+                for (i=0; i<1000; i++) {            // on fait 1000 acquisitions
+                    while (adcConversionDone()) {}  // en "pollant" l'ADC
+                    sample = adcRead()/4;           // on ramène le résultat sur 8 bits
+                    while (U1STAbits.UTXBF) {}      // on vérifie si l'UART est dispo
+                    U1TXREG = sample;               // on envoie l'échantillon au PC
                 }
+            	T3CONbits.TON = 0;      // Après les 100 acquisitions, on désactive le timer
             }
         }
 	}
