@@ -7,8 +7,8 @@ from matplotlib import pyplot   # pour l'affichage
 # Configuration du port serie
 serialPort = serial.Serial()    # creation de l'objet associe au port serie
 serialPort.baudrate = 57600     # definition du baudrate
-serialPort.port = 'COM6'        # selection du port serie
-serialPort.timeout = 0.1        # temps d'attente avant d'abandonner une lecture
+serialPort.port = 'COM7'        # selection du port serie
+serialPort.timeout = 1        # temps d'attente avant d'abandonner une lecture
 
 # Connexion au dsPIC
 try:

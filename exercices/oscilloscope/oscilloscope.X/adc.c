@@ -27,6 +27,7 @@ int adcConversionDone(void) {
 
 int adcRead(void) {
     if (AD1CON1bits.DONE) {
+        AD1CON1bits.DONE = 0;
         return ADC1BUF0;
     } else {
         return (-32768);

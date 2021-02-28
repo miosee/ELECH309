@@ -13,10 +13,13 @@
 
 int main(void) {
     unsigned int sample, i;
+    unsigned int data[1000];
    
+    _TRISB15 = 0;
+    
     // Configuration de L'ADC pour utilisation en polling sur AN0
     adcInit(ADC_TIMER3_SAMPLING);
-    PR3 = 772;                 // T=10ms=(PR1+1)/3.685MHz => PR1=36849
+    PR3 = 736;                 // T=200µs=(PR1+1)/3.685MHz => PR1+1=737
 
         /* Configuration du Peripheral Pin Select (PPS) pour connecter le signal
      * Rx de l'UART1 à RB6/RP6 et le signal Tx à RB7/RP7 */
@@ -43,14 +46,17 @@ int main(void) {
         if (U1STAbits.URXDA) {      // si UART1 a reçu un octet
             sample = U1RXREG;           // On le lit
             if (sample == 's') {        // on vérifie si c'est celui qu'on attendait
+                TMR3 = 0;
             	T3CONbits.TON = 1;      // on démarre le timer3
                 for (i=0; i<1000; i++) {            // on fait 1000 acquisitions
-                    while (adcConversionDone()) {}  // en "pollant" l'ADC
-                    sample = adcRead()/4;           // on ramène le résultat sur 8 bits
+                    while (!adcConversionDone()) {}  // en "pollant" l'ADC
+                    _LATB15 = !_LATB15;
+                    sample = adcRead();           // on ramène le résultat sur 8 bits
+                    data[i] = sample;
                     while (U1STAbits.UTXBF) {}      // on vérifie si l'UART est dispo
-                    U1TXREG = sample;               // on envoie l'échantillon au PC
+                    U1TXREG = sample/4;               // on envoie l'échantillon au PC
                 }
-            	T3CONbits.TON = 0;      // Après les 100 acquisitions, on désactive le timer
+                T3CONbits.TON = 0;      // Après les 100 acquisitions, on désactive le timer
             }
         }
 	}
