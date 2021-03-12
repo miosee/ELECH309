@@ -1,10 +1,8 @@
 /*
- * Main file of voltmetre2.X
+ * Main file of oscillscope.X
  * Author: mosee
  *
- * Implémentation du voltmètre en utilisant le timer3. La fréquence
- * d'échantillonnage est la plus précise possible pour le dsPIC, car
- * les conversions sont entièrement gérées par le hardware.
+ * 
  */
 
 #include "xc.h"
