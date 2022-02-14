@@ -72,7 +72,7 @@ $$
 ||H(j\omega)|| = \sqrt{\frac{1}{1+(\frac{\omega}{\omega_c})^{2n}}}
 $$
 
-où n est l'ordre du filtre et $\omega_c$ sa pulsation de coupure.
+où *n* est l'ordre du filtre et $$\omega_c$$ sa pulsation de coupure.
 
 ## Modulation du signal
 
